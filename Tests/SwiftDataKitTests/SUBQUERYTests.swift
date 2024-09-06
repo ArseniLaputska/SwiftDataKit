@@ -6,10 +6,13 @@
 //
 
 import Foundation
+#if canImport(SwiftData)
 import SwiftData
+#endif
 @testable import SwiftDataKit
 import XCTest
 
+@available(macOS 14, iOS 17, tvOS 17, watchOS 10, visionOS 1, *)
 class SUBQUERYTests: XCTestCase {
     func testSubQueryByKit() async throws {
         let container = try ModelContainer(for: ArticleCollection.self, Article.self, Category.self, configurations: .init(isStoredInMemoryOnly: true))

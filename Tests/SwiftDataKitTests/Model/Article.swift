@@ -7,8 +7,11 @@
 
 import CoreData
 import Foundation
+#if canImport(SwiftData)
 import SwiftData
+#endif
 
+@available(macOS 14, iOS 17, tvOS 17, watchOS 10, visionOS 1, *)
 @Model
 class ArticleCollection {
     var name: String
@@ -20,6 +23,7 @@ class ArticleCollection {
     }
 }
 
+@available(macOS 14, iOS 17, tvOS 17, watchOS 10, visionOS 1, *)
 @Model
 class Article {
     var name: String
@@ -34,6 +38,7 @@ class Article {
     }
 }
 
+@available(macOS 14, iOS 17, tvOS 17, watchOS 10, visionOS 1, *)
 @Model
 class Category {
     var name: String
@@ -49,6 +54,7 @@ class Category {
     }
 }
 
+@available(macOS 14, iOS 17, tvOS 17, watchOS 10, visionOS 1, *)
 @ModelActor
 actor ArticleHandler {
     func dataGenerator(collectionCount: Int = 20, articleCount: Int = 100, categoryNames: [String] = Category.Name.allCases.map(\.rawValue)) throws {

@@ -7,10 +7,13 @@
 
 import CoreData
 import Foundation
+#if canImport(SwiftData)
 import SwiftData
+#endif
 
 public extension NSManagedObjectID {
     // Compute PersistentIdentifier from NSManagedObjectID
+    @available(macOS 13, iOS 16, tvOS 16, watchOS 9, visionOS 1.0, *)
     var persistentIdentifier: PersistentIdentifier? {
         guard let storeIdentifier, let entityName else { return nil }
         let json = PersistentIdentifierJSON(
@@ -36,8 +39,13 @@ extension NSManagedObjectID {
 
     // Store identifier is host of URI
     var storeIdentifier: String? {
-        guard let identifier = uriRepresentation().host() else { return nil }
-        return identifier
+        if #available(macOS 13, iOS 16, tvOS 16, watchOS 9, visionOS 1.0, *) {
+            guard let identifier = uriRepresentation().host() else { return nil }
+            return identifier
+        } else {
+            guard let identifier = uriRepresentation().host else { return nil }
+            return identifier
+        }
     }
 
     // Entity name from entity name

@@ -7,10 +7,13 @@
 
 import CoreData
 import Foundation
+#if canImport(SwiftData)
 import SwiftData
+#endif
 
 // Extension to add computed properties for accessing underlying CoreData
 // implementation details of PersistentIdentifier
+@available(macOS 13, iOS 16, tvOS 16, watchOS 9, visionOS 1, *)
 public extension PersistentIdentifier {
     // Private stored property to hold reference to underlying implementation
     private var _implementation: Any? {

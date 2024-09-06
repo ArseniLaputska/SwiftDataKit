@@ -7,7 +7,7 @@ let package = Package(
     name: "SwiftDataKit",
     platforms: [
         .macOS(.v14),
-        .iOS(.v17),
+        .iOS(.v15),
         .macCatalyst(.v17),
         .tvOS(.v17),
         .visionOS(.v1),

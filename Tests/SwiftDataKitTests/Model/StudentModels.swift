@@ -7,8 +7,11 @@
 
 import CoreData
 import Foundation
+#if canImport(SwiftData)
 import SwiftData
+#endif
 
+@available(macOS 14, iOS 17, tvOS 17, watchOS 10, visionOS 1, *)
 @Model
 class Student {
     var name: String
@@ -20,6 +23,7 @@ class Student {
     }
 }
 
+@available(macOS 14, iOS 17, tvOS 17, watchOS 10, visionOS 1, *)
 @ModelActor
 actor StudentHandler {
     func dataGenerator(count: Int = 100) throws {

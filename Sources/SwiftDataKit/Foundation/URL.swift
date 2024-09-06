@@ -6,10 +6,13 @@
 //
 
 import Foundation
+#if canImport(SwiftData)
 import SwiftData
+#endif
 
 public extension URL {
     // Computed property to create a PersistentIdentifier from a URL
+    @available(macOS 13, iOS 16, tvOS 16, watchOS 9, visionOS 1.0, *)
     var persistentIdentifier: PersistentIdentifier? {
         guard scheme == "x-coredata",
               let host = host()

@@ -6,10 +6,13 @@
 //
 
 import Foundation
+#if canImport(SwiftData)
 import SwiftData
+#endif
 @testable import SwiftDataKit
 import XCTest
 
+@available(macOS 14, iOS 17, tvOS 17, watchOS 10, visionOS 1, *)
 @MainActor
 class URLtoPersistentIdentifierTests: XCTestCase {
     func testURLtoPersistentIdentifier() async throws {
@@ -25,6 +28,7 @@ class URLtoPersistentIdentifierTests: XCTestCase {
 }
 
 extension StudentHandler {
+    @available(macOS 14, iOS 17, tvOS 17, watchOS 10, visionOS 1, *)
     func createNewStudent(name: String = "fat", birthOfYear: Int = 2000) throws -> Student {
         let student = Student(name: name, birthOfYear: birthOfYear)
         modelContext.insert(student)

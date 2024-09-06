@@ -7,9 +7,12 @@
 
 import CoreData
 import Foundation
+#if canImport(SwiftData)
 import SwiftData
+#endif
 
 // Extension to add computed properties for accessing underlying CoreData implementation details
+@available(macOS 14, iOS 17, tvOS 17, watchOS 10, visionOS 1, *)
 public extension ModelContext {
     // Computed property to access the underlying NSManagedObjectContext
     var managedObjectContext: NSManagedObjectContext? {

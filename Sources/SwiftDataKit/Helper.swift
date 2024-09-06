@@ -7,7 +7,9 @@
 
 import CoreData
 import Foundation
+#if canImport(SwiftData)
 import SwiftData
+#endif
 
 /// Returns the value of a child property of an object using reflection.
 ///

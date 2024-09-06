@@ -7,8 +7,11 @@
 
 import CoreData
 import Foundation
+#if canImport(SwiftData)
 import SwiftData
+#endif
 
+@available(macOS 14, iOS 17, tvOS 17, watchOS 10, visionOS 1, *)
 public extension BackingData {
     // Computed property to access the NSManagedObject
     var managedObject: NSManagedObject? {
