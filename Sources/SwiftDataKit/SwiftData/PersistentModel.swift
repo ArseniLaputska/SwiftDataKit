@@ -17,6 +17,11 @@ public extension PersistentModel {
     /// Returns the `NSManagedObject` associated with the `PersistentModel`.
     ///
     /// - Returns: The `NSManagedObject?` instance.
+    @available(iOS, introduced: 17, deprecated: 18, message: "SwiftData not contains `managedObject` property.")
+    @available(macOS, introduced: 14, deprecated: 15, message: "SwiftData not contains `managedObject` property.")
+    @available(visionOS, introduced: 1, deprecated: 2, message: "SwiftData not contains `managedObject` property.")
+    @available(watchOS, introduced: 10, deprecated: 11, message: "SwiftData not contains `managedObject` property.")
+    @available(tvOS, introduced: 17, deprecated: 18, message: "SwiftData not contains `managedObject` property.")
     var managedObject: NSManagedObject? {
         persistentBackingData.managedObject
     }
